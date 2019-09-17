@@ -170,7 +170,7 @@ export default class VirtualList extends React.PureComponent<Props, State> {
     }
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentDidUpdate(nextProps: Props, prevState: State) {
     const {
       estimatedItemSize,
       itemCount,
@@ -225,9 +225,7 @@ export default class VirtualList extends React.PureComponent<Props, State> {
         scrollChangeReason: SCROLL_CHANGE_REASON.REQUESTED,
       });
     }
-  }
 
-  componentDidUpdate(_: Props, prevState: State) {
     const {offset, scrollChangeReason} = this.state;
 
     if (
